@@ -11,6 +11,15 @@ Note: "POST", "DELETE" requests are only demonstrations, the JSON placeholder ac
 
 ****
 
+"axios" functionality used:
+- interceptors
+- defaults configurations
+- instances
+- different request methods
+- local error handling
+
+****
+
 Usage:
 
 You must have npm installed on your local machine.
