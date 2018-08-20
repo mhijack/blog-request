@@ -8,11 +8,20 @@ class FullPost extends Component {
         loadedPost: null
     }
 
+    componentDidMount = () => {
+        console.log(this.props.match.params)
+        this.loadData();
+    }
+
     componentDidUpdate = () => {
-        if (this.props.id) {
+        this.loadData();
+    }
+
+    loadData = () => {
+        if (this.props.match.params.id) {
             // Only send out request if we're asking for a new post
-            if ((this.state.loadedPost === null) || (this.state.loadedPost && this.state.loadedPost.id !== this.props.id)) {
-                axios.get(`/posts/${this.props.id}`).then(res => {
+            if ((this.state.loadedPost === null) || (this.state.loadedPost && this.state.loadedPost.id !== +this.props.match.params.id)) {
+                axios.get(`/posts/${this.props.match.params.id}`).then(res => {
                     this.setState({
                         loadedPost: res.data
                     })
@@ -22,7 +31,7 @@ class FullPost extends Component {
     }
 
     handleDelete = () => {
-        axios.delete(`/posts/${this.props.id}`).then(res => {
+        axios.delete(`/posts/${this.props.match.params.id}`).then(res => {
             console.log(res);
         })
     }
@@ -31,7 +40,7 @@ class FullPost extends Component {
         let post = <p style={{textAlign: 'center' }}>Please select a Post!</p>;
 
         // Show loading page while waiting for response from api
-        if (this.props.id) {
+        if (this.props.match.params.id) {
             post = <p style={{textAlign: 'center' }}>Loading</p>
         }
 
