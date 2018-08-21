@@ -1,5 +1,5 @@
 .NewPost {
-    width: 80%;
+    width: 35%;
     margin: 20px auto;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
@@ -26,7 +26,7 @@
 }
 
 .NewPost button {
-    margin: 5px 0;
+    margin: 25px 0;
     padding: 10px;
     font: inherit;
     border: 1px solid #fa923f;

@@ -31,6 +31,7 @@ class FullPost extends Component {
     }
 
     handleDelete = () => {
+        console.log(this.props.match)
         axios.delete(`/posts/${this.props.match.params.id}`).then(res => {
             console.log(res);
         })
